@@ -1,0 +1,37 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.4'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.pollarbookshop'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'javax.validation:validation-api:2.0.1.Final'
+	implementation 'org.springframework:spring-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-webflux'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
+	implementation 'org.hibernate.validator:hibernate-validator:6.2.5.Final'
+	implementation 'javax.el:javax.el-api:3.0.0'
+	implementation 'org.glassfish.web:javax.el:2.2.4'
+	
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
